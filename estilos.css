@@ -68,13 +68,14 @@ img{
 }
 /* ------------------------------------- FOOTER ------------------------------------------- */
 footer{
-    background-color: #ff9900;
+    background-color: rgb(255, 153, 0);
     width: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
     display: flex;
     justify-content: center;
+    
 }
 h2{
     margin: 0;
@@ -83,3 +84,65 @@ h2{
     color: white;
 
 }
+/* ------------------------------------- ESTILOS JUEGO.HTML ------------------------------------------- */
+    canvas{
+        outline: red solid 1px;
+    }
+
+    #box-juego{
+        display: flex;
+        outline: red solid 1px;
+        padding: 10px;
+        justify-content: center;
+        align-self: center;
+    }
+    #box-controles{
+        margin-left: 100px;
+        /* outline: red solid 1px; */
+        padding: 10px;
+        justify-content: center;
+        align-self: center;
+    }
+    /* BOTONES ------------------------------------------- */
+
+    #btn-nueva_palabra{
+        padding: 15px 25px 15px 25px;
+        border-radius: 24px;
+        background-color: #ff9900;
+        border: 0;
+        color: white;
+        /* outline: red solid 1px; */
+
+    }
+    #btn-me_rindo{
+        padding: 10px 20px 10px 20px;
+        border-radius: 24px;
+        background-color: white;
+        border: 1px solid #ff9900;
+        color: #ff9900;
+        font-size: small;
+        margin-left: 10PX;
+    }
+
+    /* BOTONES HOVER ------------------------------------------- */
+
+    #btn-nueva_palabra:hover{
+        padding: 15px 25px 15px 25px;
+        border-radius: 24px;
+        background-color: white;
+        border: 0;
+        color: #ff9900;
+        border: 1px solid #ff9900;
+        transition: background-color .5s;
+        cursor: pointer;
+    }
+    #btn-me_rindo:hover{
+        padding: 10px 20px 10px 20px;
+        border-radius: 24px;
+        background-color: #ff9900;
+        border: 0;
+        color: white;
+        font-size: small;
+        transition: background-color .5s;
+        cursor: pointer;
+    }
