@@ -91,7 +91,7 @@ h2{
 
     #box-juego{
         display: flex;
-        outline: red solid 1px;
+       /*  outline: red solid 1px; */
         padding: 10px;
         justify-content: center;
         align-self: center;
