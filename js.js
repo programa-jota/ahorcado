@@ -10,6 +10,7 @@ numeroAleatorio = Math.round(Math.random()*tamanhoArreglo);
 btnNuevaPalabra.onclick = recargarPagina;
 contador = 0;
 contadorHorca = 0;
+puntos = 0;
 
 /* Deja pasar solo letras */
 function letraEscritas(evento){
@@ -73,34 +74,44 @@ function palabraCorrecta(l){
     var palabraSeleccionada = palabrasSecretas[numeroAleatorio];
     /* console.log("dibujando letra") */
     var esLetra = false;
-    console.log(esLetra);
+    console.log(l);
+    
     
     for (var i = 0; i<palabraSeleccionada.length; i++){
         if(l === palabraSeleccionada[i]){
             var esLetra = true;
             if (i === 0){
                 dibujarLetra(palabraSeleccionada[i], 65);
+                puntos = puntos + 1;
             } 
             if (i === 1){
                 dibujarLetra(palabraSeleccionada[i], 110);
+                puntos = puntos + 1;
             } 
             if (i === 2){
                 dibujarLetra(palabraSeleccionada[i], 160);
+                puntos = puntos + 1;
             } 
             if (i === 3){
                 dibujarLetra(palabraSeleccionada[i], 210);
+                puntos = puntos + 1;
             } 
             if (i === 4){
                 dibujarLetra(palabraSeleccionada[i], 260);
+                puntos = puntos + 1;
             } 
             if (i === 5){
                 dibujarLetra(palabraSeleccionada[i], 310);
+                puntos = puntos + 1;
             } 
         }
     }
     if (esLetra == false){
-        console.log("letra incorrecta");
+        /* console.log("letra incorrecta"); */
         palabraIncorrecta(l);
+    }
+    if(puntos === palabraSeleccionada.length){
+        alert("Eres un ganador");
     }
 }
 
