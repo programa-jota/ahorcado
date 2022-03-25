@@ -85,9 +85,9 @@ h2{
 
 }
 /* ------------------------------------- ESTILOS JUEGO.HTML ------------------------------------------- */
-    canvas{
+    /* canvas{
         outline: red solid 1px;
-    }
+    } */
 
     #box-juego{
         display: flex;
