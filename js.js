@@ -2,6 +2,9 @@ var btnNuevaPalabra = document.getElementById("btn-nueva_palabra");
 eventoTecla = document.addEventListener("keydown", letraEscritas);
 var pantalla = document.querySelector("canvas");
 var pincel = pantalla.getContext("2d");
+var popupContainer = document.getElementById("popup-container");
+var btnPopup = document.getElementById("btn-popup");
+
 
 /* variables globales */
 palabrasSecretas = ["PERRO", "GATO", "PAJARO"];
@@ -11,14 +14,24 @@ btnNuevaPalabra.onclick = recargarPagina;
 contador = 0;
 contadorHorca = 0;
 puntos = 0;
+letraDibujada = [];
+
+
+
 
 /* Deja pasar solo letras */
 function letraEscritas(evento){
     /* console.log("letra escrita"); */
     var letraEscrita = evento.key;
     if (evento.keyCode >= 65 && evento.keyCode <= 90){
-        palabraCorrecta(letraEscrita.toUpperCase());
-        /* console.log("confirma la letra"); */
+        
+        if(letraDibujada.includes(letraEscrita.toUpperCase())){
+            alert("Letra repetida");
+        }else{
+            palabraCorrecta(letraEscrita.toUpperCase());
+            letraDibujada.push(letraEscrita.toUpperCase());
+        }
+        
     }else{
         alert("solo letras mijo");
     }
@@ -74,38 +87,37 @@ function palabraCorrecta(l){
     var palabraSeleccionada = palabrasSecretas[numeroAleatorio];
     /* console.log("dibujando letra") */
     var esLetra = false;
-    console.log(l);
-    
     
     for (var i = 0; i<palabraSeleccionada.length; i++){
         if(l === palabraSeleccionada[i]){
             var esLetra = true;
             if (i === 0){
                 dibujarLetra(palabraSeleccionada[i], 65);
-                puntos = puntos + 1;
+                puntos = puntos + 1;            
             } 
             if (i === 1){
                 dibujarLetra(palabraSeleccionada[i], 110);
-                puntos = puntos + 1;
+                puntos = puntos + 1;    
             } 
             if (i === 2){
                 dibujarLetra(palabraSeleccionada[i], 160);
-                puntos = puntos + 1;
+                puntos = puntos + 1;    
             } 
             if (i === 3){
                 dibujarLetra(palabraSeleccionada[i], 210);
-                puntos = puntos + 1;
+                puntos = puntos + 1;    
             } 
             if (i === 4){
                 dibujarLetra(palabraSeleccionada[i], 260);
-                puntos = puntos + 1;
+                puntos = puntos + 1;    
             } 
             if (i === 5){
                 dibujarLetra(palabraSeleccionada[i], 310);
-                puntos = puntos + 1;
+                puntos = puntos + 1;    
             } 
         }
     }
+     
     if (esLetra == false){
         /* console.log("letra incorrecta"); */
         palabraIncorrecta(l);
@@ -113,8 +125,12 @@ function palabraCorrecta(l){
     if(puntos === palabraSeleccionada.length){
         alert("Eres un ganador");
     }
+
 }
 
+function letraRepetida(numeroLetra){
+    
+}
 /* Funcion para dibujar la palabra incorrecta */
 function palabraIncorrecta(l){
     
@@ -126,12 +142,12 @@ function palabraIncorrecta(l){
 
 /* Funcion que dibuja la horca cada vez que no acertan una letra */
 function dibujarHorca(){
-    console.log("dibujarHorca");
+    /* console.log("dibujarHorca"); */
     contadorHorca = contadorHorca + 1;
-    console.log(contadorHorca);
+    /* console.log(contadorHorca); */
 /* Horca */
     if (contadorHorca === 1){
-        console.log("Entrando para dibujar horca");
+        /* console.log("Entrando para dibujar horca"); */
         pincel.strokeStyle = "#07004d";
         pincel.lineWidth = 2;
         pincel.beginPath(); /* comenzar camino */
@@ -195,6 +211,6 @@ function dibujarHorca(){
         pincel.lineTo(175, 190);
         pincel.stroke();
 
-        alert("¡Perdiste!");
+        alert("Acabas de matar al Señor Palitos, que pena");
     }
 }
