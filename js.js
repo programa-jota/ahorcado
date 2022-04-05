@@ -4,21 +4,26 @@ var pantalla = document.querySelector("canvas");
 var pincel = pantalla.getContext("2d");
 var popupContainer = document.getElementById("popup-container");
 var btnPopup = document.getElementById("btn-popup");
+var btnMeRindo = document.getElementById("btn-me_rindo");
 
 /* Local storage */
-var palabrasSecretas;
+palabrasSecretas = ["PERRO", "GATO", "PAJARO", "ABUELO", "CONEJO", "FOCA", "MAIZ", "VACA", "BURRO"];
 /* localStorage.setItem("palabrasSecretas", JSON.stringify(palabrasSecretas)); */
 palabrasSecretasAlmacenadas = JSON.parse(localStorage.getItem("palabrasSecretas"));
+
+
 
 /* variables globales */
 tamanhoArreglo = palabrasSecretasAlmacenadas.length - 1;
 numeroAleatorio = Math.round(Math.random()*tamanhoArreglo);
-btnNuevaPalabra.onclick = recargarPagina;
 contador = 0;
 contadorHorca = 0;
 puntos = 0;
 letraDibujada = [];
 
+/* Acciones de botones */
+btnNuevaPalabra.onclick = recargarPagina;
+btnMeRindo.onclick = meRindo;
 
 
 
@@ -133,9 +138,6 @@ function palabraCorrecta(l){
 
 }
 
-function letraRepetida(numeroLetra){
-    
-}
 /* Funcion para dibujar la palabra incorrecta */
 function palabraIncorrecta(l){
     
@@ -218,4 +220,9 @@ function dibujarHorca(){
 
         alert("Acabas de matar al Señor Palitos, que pena");
     }
+}
+
+function meRindo(){
+    alert("Los verdaderos perdedores son los que se rinden. ¡Intentalo de nuevo!");
+    recargarPagina();
 }
