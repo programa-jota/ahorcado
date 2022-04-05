@@ -8,7 +8,7 @@ var btnMeRindo = document.getElementById("btn-me_rindo");
 
 /* Local storage */
 palabrasSecretas = ["PERRO", "GATO", "PAJARO", "ABUELO", "CONEJO", "FOCA", "MAIZ", "VACA", "BURRO"];
-/* localStorage.setItem("palabrasSecretas", JSON.stringify(palabrasSecretas)); */
+localStorage.setItem("palabrasSecretas", JSON.stringify(palabrasSecretas)); 
 palabrasSecretasAlmacenadas = JSON.parse(localStorage.getItem("palabrasSecretas"));
 
 
