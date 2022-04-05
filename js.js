@@ -5,16 +5,21 @@ var pincel = pantalla.getContext("2d");
 var popupContainer = document.getElementById("popup-container");
 var btnPopup = document.getElementById("btn-popup");
 
+/* Local storage */
+var palabrasSecretas;
+/* localStorage.setItem("palabrasSecretas", JSON.stringify(palabrasSecretas)); */
+palabrasSecretasAlmacenadas = JSON.parse(localStorage.getItem("palabrasSecretas"));
 
 /* variables globales */
-palabrasSecretas = ["PERRO", "GATO", "PAJARO"];
-tamanhoArreglo = palabrasSecretas.length - 1;
+tamanhoArreglo = palabrasSecretasAlmacenadas.length - 1;
 numeroAleatorio = Math.round(Math.random()*tamanhoArreglo);
 btnNuevaPalabra.onclick = recargarPagina;
 contador = 0;
 contadorHorca = 0;
 puntos = 0;
 letraDibujada = [];
+
+
 
 
 
@@ -48,7 +53,7 @@ function dibujarGuion(){
     
     /* var pantalla = document.querySelector("canvas");
     var pincel = pantalla.getContext("2d"); */
-    var numeroDeLetras = palabrasSecretas[numeroAleatorio].length + 1;
+    var numeroDeLetras = palabrasSecretasAlmacenadas[numeroAleatorio].length + 1;
     
     for (var i = 1; i < numeroDeLetras; i++){
         
@@ -84,7 +89,7 @@ function dibujarLetraEquivocada(l, x){
 
 /* Funcion para dibujar la letra correcta */
 function palabraCorrecta(l){
-    var palabraSeleccionada = palabrasSecretas[numeroAleatorio];
+    var palabraSeleccionada = palabrasSecretasAlmacenadas[numeroAleatorio];
     /* console.log("dibujando letra") */
     var esLetra = false;
     
